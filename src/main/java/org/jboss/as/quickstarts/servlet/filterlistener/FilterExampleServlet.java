@@ -35,7 +35,7 @@ public class FilterExampleServlet extends HttpServlet {
         writer.println("  <title>servlet-filterlistener</title>");
         writer.println(" </head>");
         writer.println(" <body>");
-        writer.println("  <h1>App Version: 2.0</h1>");
+        writer.println("  <h1>App Version: 3.0</h1>");
         writer.println("  <p>Session ID: " + session.getId() + "</p>");
         writer.println("  <p>Views in this session: " + views + "</p>");
         writer.println("  <hr>");
