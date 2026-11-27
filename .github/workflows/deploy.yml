@@ -7,21 +7,22 @@ on:
 jobs:
   deploy:
     runs-on: [self-hosted, wildfly]
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
 
-      - name: Build and Redeploy without stopping WildFly
+      - name: Build and Deploy to WildFly
         run: |
-          mvn clean package wildfly:redeploy \
+          mvn clean package wildfly:deploy \
+            -P!provisioned-server \
             -Dwildfly.hostname=wildfly \
             -Dwildfly.port=9990 \
             -Dwildfly.username=admin \
